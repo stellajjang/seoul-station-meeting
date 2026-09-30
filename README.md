@@ -4,7 +4,7 @@
 
 **사이트**: [서울역회의실센터.kr](https://서울역회의실센터.kr)
 
-![히어로 전후 비교](docs/01_히어로_데스크톱.png)
+![서울역회의실센터 홈페이지 데스크톱·모바일 화면](docs/00_대표이미지.jpg)
 
 ---
 
@@ -64,21 +64,25 @@
 ## 구조
 
 ```
-├─ index.html        # 페이지 전체
-├─ css/style.css     # 디자인 (색상 변수는 맨 위 :root)
-├─ js/main.js        # 메뉴, 스크롤 효과, 요금 계산기, 예약 선택 창, GA 이벤트 측정
-├─ js/kakao-map.js   # 카카오맵이 안 뜰 때 대체 안내
-├─ images/           # 회의실 사진
-├─ sitemap.xml, robots.txt
-└─ docs/             # 변경 전후 비교 캡처 (README용)
+├─ site/                 # 실제로 배포되는 사이트 (Netlify는 이 폴더만 배포)
+│  ├─ index.html         # 페이지 전체
+│  ├─ css/style.css      # 디자인 (색상 변수는 맨 위 :root)
+│  ├─ js/main.js         # 메뉴, 스크롤 효과, 요금 계산기, 예약 선택 창, GA 이벤트 측정
+│  ├─ js/kakao-map.js    # 카카오맵이 안 뜰 때 대체 안내
+│  ├─ images/            # 회의실 사진
+│  └─ sitemap.xml, robots.txt
+├─ docs/                 # README용 캡처 (사이트에는 배포되지 않음)
+└─ netlify.toml          # 배포 설정: site 폴더만 배포
 ```
+
+GitHub `main` 브랜치에 올리면 Netlify가 자동으로 배포합니다.
 
 ## 로컬에서 보기
 
 카카오맵은 `file://`로 열면 뜨지 않아 서버로 열어야 합니다.
 
 ```bash
-python -m http.server 8080
+python -m http.server 8080 --directory site
 ```
 
 브라우저에서 http://localhost:8080 에 접속합니다. 로컬에서는 애널리틱스가 기록되지 않습니다.
