@@ -1,2 +1,9 @@
 [build]
   publish = "site"
+
+# 예전 Netlify 주소로 들어오면 실제 도메인으로 이동 (검색엔진이 같은 사이트 두 개로 보지 않도록)
+[[redirects]]
+  from = "https://scintillating-dango-fadea2.netlify.app/*"
+  to = "https://xn--2i4bic56d1xf82aq1ac81cr8j.kr/:splat"
+  status = 301
+  force = true
